@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
-//#include<string.h>
 
 #define MaxLen 1000
 
@@ -26,6 +25,7 @@ int main ()
     const char append[] = {"a b c"};
     char str[MaxLen] = "\0";
     char src[] = {"a b c d"};
+
 
 
     printf("Choose function and input it's number\n\n"
@@ -88,6 +88,7 @@ int main ()
             printf("You input smth wrong");
             break;
     }
+
     return 0;
 }
 
