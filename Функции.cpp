@@ -14,6 +14,7 @@ char* my_strcat(char *dest, const char *src);
 char* my_strncat(char *dest, const char *src, int num);
 char* my_fgets(FILE *fp, char str[]);
 char* my_strdup(char src[]);
+int my_getline(char line[], int maxlen, FILE* fp);
 
 int main ()
 {
@@ -26,11 +27,9 @@ int main ()
     char str[MaxLen] = "\0";
     char src[] = {"a b c d"};
 
-
-
     printf("Choose function and input it's number\n\n"
            "1 - puts\n2 - strlen\n3 - strchr\n4 - strcpy\n5 - strcpyn\n"
-           "6 - strcat\n7 - strncat\n8 - fgets\n9 - strdup\n");
+           "6 - strcat\n7 - strncat\n8 - fgets\n9 - strdup\n10 - getline\n");
 
     int func = 0;
     scanf("%d", &func);
@@ -83,7 +82,11 @@ int main ()
         case 9:
             printf("%s", my_strdup(src));
             break;
-        //case 10:
+        case 10:
+            FILE *f;
+            f = fopen ("tester.txt", "r");
+            printf("%d", my_getline(a, MaxLen, f));
+            break;
         default:
             printf("You input smth wrong");
             break;
@@ -213,5 +216,13 @@ char* my_strdup(char src[])
 
     return s;
 }
+int my_getline(char line[], int maxlen, FILE* fp)
+{
+    if(fgets(line, MaxLen, fp) == NULL)
+        return 0;
+    else
+        return len_of_str(line);
+}
+
 
 
